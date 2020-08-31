@@ -1,5 +1,9 @@
 package model;
 
+import enums.Category;
+import enums.Location;
+import enums.Rating;
+
 import javax.persistence.*;
 
 @Entity
@@ -12,13 +16,13 @@ public class Restaurant {
     private String name;
 
     @Column
-    private String category;
+    private Category category;
 
     @Column
-    private String location;
+    private Location location;
 
     @Column
-    private Long rating;
+    private Rating rating;
 
     @Column
     private boolean haveTried;
@@ -45,27 +49,27 @@ public class Restaurant {
         this.name = name;
     }
 
-    public String getCategory() {
+    public Category getCategory() {
         return category;
     }
 
-    public void setCategory(String category) {
+    public void setCategory(Category category) {
         this.category = category;
     }
 
-    public String getLocation() {
+    public Location getLocation() {
         return location;
     }
 
-    public void setLocation(String location) {
+    public void setLocation(Location location) {
         this.location = location;
     }
 
-    public Long getRating() {
+    public Rating getRating() {
         return rating;
     }
 
-    public void setRating(Long rating) {
+    public void setRating(Rating rating) {
         this.rating = rating;
     }
 
