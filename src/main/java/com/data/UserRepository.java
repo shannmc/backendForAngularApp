@@ -1,6 +1,6 @@
-package data;
+package com.data;
 
-import model.User;
+import com.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UserRepository extends JpaRepository<User,Long> {

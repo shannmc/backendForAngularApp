@@ -1,4 +1,4 @@
-package enums;
+package com.enums;
 
 public enum Category {
     AMERICAN,
@@ -30,7 +30,7 @@ public enum Category {
     HIBACHI,
     PIZZA,
     SUBS,
-    PUB,
+    BAR,
     PASTA,
     ITALIAN,
     BREAKFAST,

@@ -1,8 +1,8 @@
-package model;
+package com.model;
 
-import enums.Category;
-import enums.Location;
-import enums.Rating;
+import com.enums.Category;
+import com.enums.Location;
+import com.enums.Rating;
 
 import javax.persistence.*;
 

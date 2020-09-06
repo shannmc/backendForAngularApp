@@ -1,7 +1,4 @@
-package model;
-
-import com.sun.istack.NotNull;
-import org.springframework.lang.NonNull;
+package com.model;
 
 import javax.persistence.*;
 
