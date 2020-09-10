@@ -3,10 +3,7 @@ package com.controller;
 import com.data.RestaurantRepository;
 import com.model.Restaurant;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -18,13 +15,25 @@ public class RestaurantController {
     private RestaurantRepository restaurantRepository;
 
     @GetMapping()
-    public List<Restaurant> getAllRooms() {
+    public List<Restaurant> getAllRestaurants() {
         return restaurantRepository.findAll();
     }
 
-    @PostMapping("/add")
+    @GetMapping("/{id}")
+    public Restaurant getRestaurant(@PathVariable("id") Long id) {
+        return restaurantRepository.findById(id).get();
+    }
+
+    @PostMapping()
     public void addRestaurant(Restaurant restaurant) {
         restaurantRepository.save(restaurant);
+    }
+
+    @PutMapping()
+    public void updateRestaurant(@RequestBody Restaurant updatedRestaurant) {
+        Restaurant originalRestaurant = restaurantRepository.findById(updatedRestaurant.getId()).get();
+        originalRestaurant.setName(updatedRestaurant.getName());
+        originalRestaurant.setCategory(updatedRestaurant.getCategory());
     }
 
 }
