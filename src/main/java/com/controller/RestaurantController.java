@@ -11,8 +11,11 @@ import java.util.List;
 @RequestMapping("/api/restaurants")
 public class RestaurantController {
 
-    @Autowired
-    private RestaurantRepository restaurantRepository;
+    private final RestaurantRepository restaurantRepository;
+
+    public RestaurantController(RestaurantRepository restaurantRepository) {
+        this.restaurantRepository = restaurantRepository;
+    }
 
     @GetMapping()
     public List<Restaurant> getAllRestaurants() {
@@ -34,6 +37,9 @@ public class RestaurantController {
         Restaurant originalRestaurant = restaurantRepository.findById(updatedRestaurant.getId()).get();
         originalRestaurant.setName(updatedRestaurant.getName());
         originalRestaurant.setCategory(updatedRestaurant.getCategory());
+        originalRestaurant.setHaveTried(updatedRestaurant.getHaveTried());
+        originalRestaurant.setLocation(updatedRestaurant.getLocation());
+        originalRestaurant.setRating(updatedRestaurant.getRating());
     }
 
 }

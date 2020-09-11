@@ -73,7 +73,7 @@ public class Restaurant {
         this.rating = rating;
     }
 
-    public boolean isHaveTried() {
+    public boolean getHaveTried() {
         return haveTried;
     }
 
