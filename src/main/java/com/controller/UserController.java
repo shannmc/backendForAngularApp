@@ -1,13 +1,12 @@
 package com.controller;
 
 import com.data.UserRepository;
-import com.data.UserRepository;
+import com.model.AngularUser;
 import com.model.User;
-import com.model.User;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/users")
@@ -20,25 +19,32 @@ public class UserController {
     }
 
     @GetMapping()
-    public List<User> getAllUsers() {
-        return userRepository.findAll();
+    public List<AngularUser> getAllUsers() {
+        return userRepository
+                .findAll()
+                .parallelStream()
+                .map(AngularUser::new)
+                .collect(Collectors.toList());
     }
 
     @GetMapping("/{id}")
-    public User getUser(@PathVariable("id") Long id) {
-        return userRepository.findById(id).get();
-    }
-
-    @PostMapping()
-    public void addUser(User user) {
-        userRepository.save(user);
+    public AngularUser getUser(@PathVariable("id") Long id) {
+        return new AngularUser(userRepository.findById(id).get());
     }
 
     @PutMapping()
-    public void updateUser(@RequestBody User updatedUser) {
+    public AngularUser updateUser(@RequestBody AngularUser updatedUser) {
         User originalUser = userRepository.findById(updatedUser.getId()).get();
         originalUser.setName(updatedUser.getName());
+        return new AngularUser(userRepository.save(originalUser));
     }
+
+    @PostMapping()
+    public AngularUser addUser(@RequestBody AngularUser user) {
+        return new AngularUser(userRepository.save(user.asUser()));
+    }
+
+
 
 }
 
