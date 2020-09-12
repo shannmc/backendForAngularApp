@@ -29,6 +29,7 @@ public class UserController {
 
     @GetMapping("/{id}")
     public AngularUser getUser(@PathVariable("id") Long id) {
+        System.out.println("Got a request for user" + id);
         return new AngularUser(userRepository.findById(id).get());
     }
 
