@@ -43,5 +43,10 @@ public class RestaurantController {
         return restaurantRepository.save(originalRestaurant);
     }
 
+    @DeleteMapping("/{id}")
+    public void deleteRestaurant(@PathVariable("id") Long id) {
+        restaurantRepository.deleteById(id);
+    }
+
 }
 
