@@ -28,18 +28,19 @@ public class RestaurantController {
     }
 
     @PostMapping()
-    public void addRestaurant(@RequestBody Restaurant restaurant) {
-        restaurantRepository.save(restaurant);
+    public Restaurant addRestaurant(@RequestBody Restaurant restaurant) {
+        return restaurantRepository.save(restaurant);
     }
 
     @PutMapping()
-    public void updateRestaurant(@RequestBody Restaurant updatedRestaurant) {
+    public Restaurant updateRestaurant(@RequestBody Restaurant updatedRestaurant) {
         Restaurant originalRestaurant = restaurantRepository.findById(updatedRestaurant.getId()).get();
         originalRestaurant.setName(updatedRestaurant.getName());
         originalRestaurant.setCategory(updatedRestaurant.getCategory());
         originalRestaurant.setHaveTried(updatedRestaurant.getHaveTried());
         originalRestaurant.setLocation(updatedRestaurant.getLocation());
         originalRestaurant.setRating(updatedRestaurant.getRating());
+        return restaurantRepository.save(originalRestaurant);
     }
 
 }
