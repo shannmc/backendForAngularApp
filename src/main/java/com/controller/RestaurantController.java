@@ -2,7 +2,6 @@ package com.controller;
 
 import com.data.RestaurantRepository;
 import com.model.Restaurant;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,7 +17,8 @@ public class RestaurantController {
     }
 
     @GetMapping()
-    public List<Restaurant> getAllRestaurants() {
+    public List<Restaurant> getAllRestaurants() throws InterruptedException {
+//        Thread.sleep(3000);
         return restaurantRepository.findAll();
     }
 

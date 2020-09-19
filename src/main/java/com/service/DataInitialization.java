@@ -26,11 +26,13 @@ public class DataInitialization {
         List<Restaurant> restaurants = restaurantRepository.findAll();
         if (restaurants.size() == 0) {
             Restaurant restaurant1 = new Restaurant("Olive Garden");
+            restaurant1.setId(12L);
             restaurant1.setCategory(Category.ITALIAN);
             restaurantRepository.save(restaurant1);
 
             Restaurant restaurant2 = new Restaurant("Tasty Thai");
             restaurant2.setCategory(Category.THAI);
+            restaurant1.setId(13L);
             restaurantRepository.save(restaurant2);
 
             User user = new User("shannon", "password");

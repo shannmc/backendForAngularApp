@@ -40,9 +40,10 @@ public class UserController {
         return new AngularUser(userRepository.save(originalUser));
     }
 
+    //uses User instead of angularUser because of password
     @PostMapping()
-    public AngularUser addUser(@RequestBody AngularUser user) {
-        return new AngularUser(userRepository.save(user.asUser()));
+    public AngularUser addUser(@RequestBody User user) {
+        return new AngularUser(userRepository.save(user));
     }
 
 
