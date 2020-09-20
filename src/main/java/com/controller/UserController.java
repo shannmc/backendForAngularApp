@@ -51,6 +51,14 @@ public class UserController {
         userRepository.deleteById(id);
     }
 
+    @GetMapping("/resetPassword/{id}")
+    public void resetPassword(@PathVariable("id") Long id) {
+        System.out.println("Got a request for user" + id);
+        User user = userRepository.findById(id).get();
+        user.setPassword("secret");
+        userRepository.save(user);
+    }
+
 
 
 }
