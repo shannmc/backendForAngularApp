@@ -46,6 +46,11 @@ public class UserController {
         return new AngularUser(userRepository.save(user));
     }
 
+    @DeleteMapping("/{id}")
+    public void deleteUser(@PathVariable("id") Long id) {
+        userRepository.deleteById(id);
+    }
+
 
 
 }
