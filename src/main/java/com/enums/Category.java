@@ -41,6 +41,9 @@ public enum Category {
     DELI,
     LUNCH,
     SOUTHERN,
+    FOOD_TRUCK,
+    FOOD_STAND,
+    CAFE,
     OTHER
 
 }
