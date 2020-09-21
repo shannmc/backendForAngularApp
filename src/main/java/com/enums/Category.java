@@ -17,11 +17,7 @@ public enum Category {
     SMOOTHIE,
     DESSERT,
     STEAK,
-    FANCY,
-    AMBIANCE,
     ICE_CREAM,
-    TEA,
-    POKE,
     SUSHI,
     VIETNAMESE,
     PERUVIAN,
@@ -42,7 +38,6 @@ public enum Category {
     LUNCH,
     SOUTHERN,
     FOOD_TRUCK,
-    FOOD_STAND,
     CAFE,
     OTHER
 
