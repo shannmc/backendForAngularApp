@@ -2,7 +2,6 @@ package com.model;
 
 import com.enums.Category;
 import com.enums.Location;
-import com.enums.Rating;
 
 import javax.persistence.*;
 
@@ -22,7 +21,7 @@ public class Restaurant {
     private Location location;
 
     @Column
-    private Rating rating;
+    private Long rating;
 
     @Column
     private boolean haveTried;
@@ -65,11 +64,11 @@ public class Restaurant {
         this.location = location;
     }
 
-    public Rating getRating() {
+    public Long getRating() {
         return rating;
     }
 
-    public void setRating(Rating rating) {
+    public void setRating(Long rating) {
         this.rating = rating;
     }
 
