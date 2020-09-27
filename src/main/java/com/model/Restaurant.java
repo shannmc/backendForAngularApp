@@ -26,6 +26,9 @@ public class Restaurant {
     @Column
     private boolean haveTried;
 
+    @Column
+    private String notes;
+
     public Restaurant(String name) {
         this.name = name;
         }
@@ -78,5 +81,13 @@ public class Restaurant {
 
     public void setHaveTried(boolean haveTried) {
         this.haveTried = haveTried;
+    }
+
+    public String getNotes() {
+        return notes;
+    }
+
+    public void setNotes(String notes) {
+        this.notes = notes;
     }
 }

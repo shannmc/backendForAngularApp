@@ -40,6 +40,7 @@ public class RestaurantController {
         originalRestaurant.setHaveTried(updatedRestaurant.getHaveTried());
         originalRestaurant.setLocation(updatedRestaurant.getLocation());
         originalRestaurant.setRating(updatedRestaurant.getRating());
+        originalRestaurant.setNotes(updatedRestaurant.getNotes());
         return restaurantRepository.save(originalRestaurant);
     }
 
