@@ -19,7 +19,8 @@ public class UserController {
     }
 
     @GetMapping()
-    public List<AngularUser> getAllUsers() {
+    public List<AngularUser> getAllUsers() throws InterruptedException {
+                Thread.sleep(3000);
         return userRepository
                 .findAll()
                 .parallelStream()
