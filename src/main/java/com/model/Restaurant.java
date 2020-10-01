@@ -87,4 +87,12 @@ public class Restaurant {
     public void setNotes(String notes) {
         this.notes = notes;
     }
+
+    public Set<Category> getAssociatedCategories() {
+        return associatedCategories;
+    }
+
+    public void setAssociatedCategories(Set<Category> associatedCategories) {
+        this.associatedCategories = associatedCategories;
+    }
 }

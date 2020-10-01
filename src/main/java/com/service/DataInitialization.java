@@ -1,5 +1,6 @@
 package com.service;
 
+import com.data.CategoryRepository;
 import com.data.RestaurantRepository;
 import com.data.UserRepository;
 import com.enums.Location;
@@ -11,7 +12,10 @@ import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Service;
 
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class DataInitialization {
@@ -21,6 +25,9 @@ public class DataInitialization {
 
     @Autowired
     UserRepository userRepository;
+
+    @Autowired
+    CategoryRepository categoryRepository;
 
     @EventListener(ApplicationReadyEvent.class)
     public void initData() {
@@ -43,6 +50,17 @@ public class DataInitialization {
 
             Category category = new Category();
             category.setCategoryName("Thai");
+            category.setId(1L);
+            categoryRepository.save(category);
+
+//            Set<Category> restaurantCatSet = new HashSet<Category>(Arrays.asList(category));
+//            Set<Restaurant> categoryRestSet = new HashSet<Restaurant>(Arrays.asList(restaurant1));
+//
+//
+//            restaurant1.setAssociatedCategories(restaurantCatSet);
+//            category.setRestaurantsInCategory(categoryRestSet);
+//            restaurantRepository.save(restaurant1);
+//            categoryRepository.save(category);
         }
     }
 }

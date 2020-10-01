@@ -41,4 +41,5 @@ public class Category {
     public void setRestaurantsInCategory(Set<Restaurant> restaurantsInCategory) {
         this.restaurantsInCategory = restaurantsInCategory;
     }
+
 }
