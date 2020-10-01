@@ -36,7 +36,7 @@ public class RestaurantController {
     public Restaurant updateRestaurant(@RequestBody Restaurant updatedRestaurant) {
         Restaurant originalRestaurant = restaurantRepository.findById(updatedRestaurant.getId()).get();
         originalRestaurant.setName(updatedRestaurant.getName());
-        originalRestaurant.setCategory(updatedRestaurant.getCategory());
+//        originalRestaurant.setCategory(updatedRestaurant.getCategory());
         originalRestaurant.setHaveTried(updatedRestaurant.getHaveTried());
         originalRestaurant.setLocation(updatedRestaurant.getLocation());
         originalRestaurant.setRating(updatedRestaurant.getRating());

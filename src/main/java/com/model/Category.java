@@ -1,9 +1,7 @@
 package com.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class Category {
@@ -15,8 +13,10 @@ public class Category {
     @Column
     private String categoryName;
 
-    @Column
-    private Long mappingId;
+//    private Long restaurantId;
+
+    @ManyToMany(mappedBy = "associatedCategories")
+    Set<Restaurant> restaurantsInCategory;
 
     public Long getId() {
         return id;
@@ -34,11 +34,11 @@ public class Category {
         this.categoryName = categoryName;
     }
 
-    public Long getMappingId() {
-        return mappingId;
+    public Set<Restaurant> getRestaurantsInCategory() {
+        return restaurantsInCategory;
     }
 
-    public void setMappingId(Long mappingId) {
-        this.mappingId = mappingId;
+    public void setRestaurantsInCategory(Set<Restaurant> restaurantsInCategory) {
+        this.restaurantsInCategory = restaurantsInCategory;
     }
 }

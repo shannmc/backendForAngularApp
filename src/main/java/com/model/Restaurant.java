@@ -1,21 +1,19 @@
 package com.model;
 
-import com.enums.Category;
 import com.enums.Location;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class Restaurant {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @Column(nullable = false)
     private String name;
-
-    @Column
-    private Category category;
 
     @Column
     private Location location;
@@ -28,6 +26,13 @@ public class Restaurant {
 
     @Column
     private String notes;
+
+    @ManyToMany
+    @JoinTable(
+            name = "restaurant_to_category",
+            joinColumns = @JoinColumn(name = "restaurant_id"),
+            inverseJoinColumns = @JoinColumn(name = "category_id"))
+    Set<Category> associatedCategories;
 
     public Restaurant(String name) {
         this.name = name;
@@ -49,14 +54,6 @@ public class Restaurant {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public Category getCategory() {
-        return category;
-    }
-
-    public void setCategory(Category category) {
-        this.category = category;
     }
 
     public Location getLocation() {
