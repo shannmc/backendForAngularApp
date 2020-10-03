@@ -35,14 +35,10 @@ public class DataInitialization {
         if (restaurants.size() == 0) {
             Restaurant restaurant1 = new Restaurant("Olive Garden");
             restaurant1.setLocation(Location.NORTH_CHARLESTON);
-            restaurant1.setId(12L);
-//            restaurant1.setCategory(Category.ITALIAN);
             restaurantRepository.save(restaurant1);
 
             Restaurant restaurant2 = new Restaurant("Tasty Thai");
-//            restaurant2.setCategory(Category.THAI);
             restaurant2.setLocation(Location.DOWNTOWN);
-            restaurant2.setId(13L);
             restaurantRepository.save(restaurant2);
 
             User user = new User("shannon", "password");
@@ -50,16 +46,17 @@ public class DataInitialization {
 
             Category category = new Category();
             category.setCategoryName("Thai");
-            category.setId(1L);
             categoryRepository.save(category);
 
-//            Set<Category> restaurantCatSet = new HashSet<Category>(Arrays.asList(category));
+            Set<Category> restaurantCatSet = new HashSet<Category>(Arrays.asList(category));
+            restaurantCatSet.add(category);
 //            Set<Restaurant> categoryRestSet = new HashSet<Restaurant>(Arrays.asList(restaurant1));
+
 //
 //
-//            restaurant1.setAssociatedCategories(restaurantCatSet);
+            restaurant1.setAssociatedCategories(restaurantCatSet);
 //            category.setRestaurantsInCategory(categoryRestSet);
-//            restaurantRepository.save(restaurant1);
+            restaurantRepository.save(restaurant1);
 //            categoryRepository.save(category);
         }
     }
