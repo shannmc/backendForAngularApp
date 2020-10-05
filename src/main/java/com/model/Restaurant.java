@@ -3,6 +3,7 @@ package com.model;
 import com.enums.Location;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -32,7 +33,17 @@ public class Restaurant {
             name = "restaurant_to_category",
             joinColumns = @JoinColumn(name = "restaurant_id"),
             inverseJoinColumns = @JoinColumn(name = "category_id"))
-    Set<Category> associatedCategories;
+    private Set<Category> associatedCategories = new HashSet<>();
+
+    public void addCategory(Category category) {
+        associatedCategories.add(category);
+        category.getRestaurantsInCategory().add(this);
+    }
+
+    public void removeCategory(Category category) {
+        associatedCategories.remove(category);
+        category.getRestaurantsInCategory().remove(this);
+    }
 
     public Restaurant(String name) {
         this.name = name;

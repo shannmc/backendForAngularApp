@@ -1,6 +1,7 @@
 package com.model;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -16,7 +17,7 @@ public class Category {
 //    private Long restaurantId;
 
     @ManyToMany(mappedBy = "associatedCategories")
-    Set<Restaurant> restaurantsInCategory;
+    private Set<Restaurant> restaurantsInCategory = new HashSet<>();
 
     public Long getId() {
         return id;
