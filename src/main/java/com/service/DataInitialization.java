@@ -43,20 +43,38 @@ public class DataInitialization {
 
             Restaurant restaurant2 = new Restaurant("Tasty Thai");
             restaurant2.setLocation(Location.DOWNTOWN);
-            restaurantRepository.save(restaurant2);
+
+            Restaurant restaurant3 = new Restaurant("Taste of Thai");
+            restaurant3.setLocation(Location.WEST_ASHLEY);
 
             User user = new User("shannon", "password");
             userRepository.save(user);
 
-            Category category = new Category();
-            category.setCategoryName("Thai");
-
-            Set<Category> categories = new HashSet<>();
-            categories.add(category);
-
-            restaurant1.setAssociatedCategories(categories);
-            categoryRepository.save(category);
+            Category category1 = new Category();
+            category1.setCategoryName("Thai");
+            Set<Category> categories1 = new HashSet<>();
+            categories1.add(category1);
+            restaurant1.setAssociatedCategories(categories1);
+            categoryRepository.save(category1);
             restaurantRepository.save(restaurant1);
+
+
+            Category category2 = new Category();
+            Category category3 = new Category();
+            category2.setCategoryName("Cafe");
+            category3.setCategoryName("Chinese");
+            Set<Category> categories2 = new HashSet<>();
+            categories2.add(category2);
+            categories2.add(category3);
+            restaurant2.setAssociatedCategories(categories2);
+            categoryRepository.save(category2);
+            categoryRepository.save(category3);
+            restaurantRepository.save(restaurant2);
+
+
+            restaurant3.setAssociatedCategories(categories1);
+            restaurantRepository.save(restaurant3);
+
         }
     }
 }
