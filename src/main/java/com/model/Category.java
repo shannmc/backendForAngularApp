@@ -1,5 +1,7 @@
 package com.model;
 
+import org.hibernate.annotations.LazyCollection;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
@@ -16,8 +18,8 @@ public class Category {
 
 //    private Long restaurantId;
 
-    @ManyToMany(mappedBy = "associatedCategories")
-    private Set<Restaurant> restaurantsInCategory = new HashSet<>();
+//    @ManyToMany(mappedBy = "associatedCategories")
+//    private Set<Restaurant> restaurantsInCategory = new HashSet<>();
 
     public Long getId() {
         return id;
@@ -35,12 +37,12 @@ public class Category {
         this.categoryName = categoryName;
     }
 
-    public Set<Restaurant> getRestaurantsInCategory() {
-        return restaurantsInCategory;
-    }
-
-    public void setRestaurantsInCategory(Set<Restaurant> restaurantsInCategory) {
-        this.restaurantsInCategory = restaurantsInCategory;
-    }
+//    public Set<Restaurant> getRestaurantsInCategory() {
+//        return restaurantsInCategory;
+//    }
+//
+//    public void setRestaurantsInCategory(Set<Restaurant> restaurantsInCategory) {
+//        this.restaurantsInCategory = restaurantsInCategory;
+//    }
 
 }

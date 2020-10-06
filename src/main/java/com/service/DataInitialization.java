@@ -51,29 +51,12 @@ public class DataInitialization {
             Category category = new Category();
             category.setCategoryName("Thai");
 
-            restaurant1.addCategory(category);
-            categoryRepository.save(category);
-
-            Set<Category> categories = new HashSet<Category>();
+            Set<Category> categories = new HashSet<>();
             categories.add(category);
+
             restaurant1.setAssociatedCategories(categories);
-
+            categoryRepository.save(category);
             restaurantRepository.save(restaurant1);
-
-
-
-
-
-//            Set<Category> restaurantCatSet = new HashSet<Category>(Arrays.asList(category));
-//            restaurantCatSet.add(category);
-////            Set<Restaurant> categoryRestSet = new HashSet<Restaurant>(Arrays.asList(restaurant1));
-//
-////
-////
-////            restaurant1.setAssociatedCategories(restaurantCatSet);
-////            category.setRestaurantsInCategory(categoryRestSet);
-//            restaurantRepository.save(restaurant1);
-////            categoryRepository.save(category);
         }
     }
 }
