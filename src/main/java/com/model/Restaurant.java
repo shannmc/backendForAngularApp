@@ -35,16 +35,6 @@ public class Restaurant {
             inverseJoinColumns = @JoinColumn(name = "category_id"))
     private Set<Category> associatedCategories = new HashSet<>();
 
-//    public void addCategory(Category category) {
-//        associatedCategories.add(category);
-//        category.getRestaurantsInCategory().add(this);
-//    }
-
-//    public void removeCategory(Category category) {
-//        associatedCategories.remove(category);
-//        category.getRestaurantsInCategory().remove(this);
-//    }
-
     public Restaurant(String name) {
         this.name = name;
         }
