@@ -51,7 +51,7 @@ public class DataInitialization {
             userRepository.save(user);
 
             Category category1 = new Category();
-            category1.setCategoryName("Thai");
+            category1.setName("thai");
             Set<Category> categories1 = new HashSet<>();
             categories1.add(category1);
             restaurant1.setAssociatedCategories(categories1);
@@ -61,8 +61,8 @@ public class DataInitialization {
 
             Category category2 = new Category();
             Category category3 = new Category();
-            category2.setCategoryName("Cafe");
-            category3.setCategoryName("Chinese");
+            category2.setName("cafe");
+            category3.setName("chinese");
             Set<Category> categories2 = new HashSet<>();
             categories2.add(category2);
             categories2.add(category3);

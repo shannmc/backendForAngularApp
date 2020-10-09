@@ -26,9 +26,9 @@ public class CategoryController {
         return categoryRepository.findAll();
     }
 
-    @GetMapping("/{name}")
+    @GetMapping("/name/{name}")
     public String getCategoryByName(@PathVariable("name") String name) {
-        if(categoryRepository.findByName(name) != null) {
+        if(categoryRepository.findByName(name).size() > 0) {
             System.out.println(categoryRepository.findByName(name));
             return "yes";
         } else {
@@ -44,6 +44,7 @@ public class CategoryController {
 //        } else {
 //            System.out.println("NO");
 //        }
+        category.setName(category.getName().toLowerCase());
         return categoryRepository.save(category);
     }
 }
