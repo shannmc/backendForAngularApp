@@ -1,12 +1,18 @@
 package com.model;
 
 import com.enums.Location;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
+@Getter
+@Setter
+@NoArgsConstructor
 public class Restaurant {
 
     @Id
@@ -39,40 +45,6 @@ public class Restaurant {
         this.name = name;
         }
 
-    public Restaurant() { }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Location getLocation() {
-        return location;
-    }
-
-    public void setLocation(Location location) {
-        this.location = location;
-    }
-
-    public Long getRating() {
-        return rating;
-    }
-
-    public void setRating(Long rating) {
-        this.rating = rating;
-    }
-
     public boolean getHaveTried() {
         return haveTried;
     }
@@ -81,19 +53,4 @@ public class Restaurant {
         this.haveTried = haveTried;
     }
 
-    public String getNotes() {
-        return notes;
-    }
-
-    public void setNotes(String notes) {
-        this.notes = notes;
-    }
-
-    public Set<Category> getAssociatedCategories() {
-        return associatedCategories;
-    }
-
-    public void setAssociatedCategories(Set<Category> associatedCategories) {
-        this.associatedCategories = associatedCategories;
-    }
 }
