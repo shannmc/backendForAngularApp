@@ -26,25 +26,25 @@ public class CategoryController {
         return categoryRepository.findAll();
     }
 
-    @GetMapping("/name/{name}")
-    public String getCategoryByName(@PathVariable("name") String name) {
-        if(categoryRepository.findByName(name).size() > 0) {
-            System.out.println(categoryRepository.findByName(name));
-            return "yes";
-        } else {
-            return "no";
-        }
-    }
+//    @GetMapping("/name/{name}")
+//    public String getCategoryByName(@PathVariable("name") String name) {
+//        if(categoryRepository.findByName(name).size() > 0) {
+//            System.out.println(categoryRepository.findByName(name));
+//            return "yes";
+//        } else {
+//            return "no";
+//        }
+//    }
 
     @PostMapping()
     public Category addCategory (@RequestBody Category category) {
-//        if(categoryRepository.findByName(category.getCategoryName()) != null) {
-//            System.out.println("YES");
-//            System.out.println(categoryRepository.findByName(category.getCategoryName()));
-//        } else {
-//            System.out.println("NO");
-//        }
         category.setName(category.getName().toLowerCase());
-        return categoryRepository.save(category);
+
+        if(categoryRepository.findByName(category.getName()).size() == 0) {
+            return categoryRepository.save(category);
+        } else {
+            return categoryRepository.findByName(category.getName()).get(0);
+        }
     }
+
 }
